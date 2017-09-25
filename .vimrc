@@ -272,3 +272,15 @@ cabbrev delview <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Delview' : 'delvie
 
 " C/C++ autocomplete file
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+
+" YCM navigation commands
+
+" Go to include file (gf)
+map gf :YcmCompleter GoToInclude<CR>
+
+" Go to declaration (gd)
+map gd :YcmCompleter GoToDefinition<CR>
+
+" Go to (gg)
+map gg :YcmCompleter GoTo<CR>
