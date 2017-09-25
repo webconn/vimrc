@@ -86,7 +86,7 @@ set smartindent
 set fo+=cr
 
 " Опции сесссий
-set sessionoptions=curdir,buffers,tabpages
+set sessionoptions=buffers,tabpages
 
 "-------------------------
 " Горячие клавишы
@@ -206,6 +206,9 @@ au BufRead,BufNewFile *.S       "set filetype=asm
 au BufRead,BufNewFile *.pl,*.py      map <F9> :!./%<cr>
 au BufRead,BufNewFile *.pl,*.py      vmap <F9> <esc>:!./%<cr>i
 au BufRead,BufNewFile *.pl,*.py      imap <F9> <esc>:!./%<cr>i
+
+" Set current directory for current file
+autocmd BufEnter * silent! lcd %:p:h
 
 " Настройки для SessionMgr
 " let g:SessionMgr_AutoManage = 0
