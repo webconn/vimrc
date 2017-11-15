@@ -225,7 +225,10 @@ set mps-=[:]
 autocmd BufWinLeave,BufWrite,BufLeave *.* mkview
 autocmd BufRead,BufEnter,BufWinEnter,BufWritePost *.* silent loadview 
 set viewoptions-=options
-set sessionoptions-=options
+set sessionoptions=buffers,tabpages
+
+" Set current directory for current file
+autocmd BufEnter * silent! lcd %:p:h
 
 " External configuration
 " let g:localvimrc_debug = 1
@@ -284,3 +287,6 @@ map gd :YcmCompleter GoToDefinition<CR>
 
 " Go to (gg)
 map gg :YcmCompleter GoTo<CR>
+
+" Invocation on Ctrl-B
+let g:ycm_key_invoke_completion = '<C-b>'
