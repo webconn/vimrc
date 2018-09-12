@@ -26,6 +26,7 @@ call vundle#begin()
         "Plugin 'justmao945/vim-clang'   " Autocomlete for C/C++
         " Plugin 'vim-scripts/opencl.vim'
         Plugin 'valloric/YouCompleteMe'
+        Plugin 'rdnetto/YCM-Generator'
 
         " Golang
         Plugin 'fatih/vim-go'
