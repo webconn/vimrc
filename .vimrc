@@ -102,9 +102,6 @@ imap <C-F> <C-X><C-O>
 vmap <C-C> "+yi
 imap <C-V> <esc>"+gPi
 
-" Заставляем shift-insert работать как в Xterm
-map <S-Insert> <MiddleMouse>
-
 " Поиск и замена слова под курсором
 nmap ;; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 
@@ -289,4 +286,8 @@ map gd :YcmCompleter GoToDefinition<CR>
 map gg :YcmCompleter GoTo<CR>
 
 " Invocation on Ctrl-B
-let g:ycm_key_invoke_completion = '<C-b>'
+let g:ycm_key_invoke_completion = '<Nul>'
+
+
+" Uncrustify
+autocmd BufWritePre <buffer> if (&filetype == 'cpp') | call Uncrustify() | endif

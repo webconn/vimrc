@@ -41,6 +41,12 @@ call vundle#begin()
         " 5. Autocommenting
         Plugin 'tpope/vim-commentary'
 
+        " 6. Debugging
+        Plugin 'vim-scripts/Conque-GDB'
+
+        " 7. Code tidy
+        Plugin 'embear/vim-uncrustify'
+
 call vundle#end()
 
 filetype plugin indent on
