@@ -1,0 +1,3 @@
+let s:current_dir=expand("<sfile>:h")
+
+command Debug call DebugSession(s:current_dir, "freertos_test.elf", "debugOCD_nucleo_f767.gdb")

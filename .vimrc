@@ -288,6 +288,12 @@ map gg :YcmCompleter GoTo<CR>
 " Invocation on Ctrl-B
 let g:ycm_key_invoke_completion = '<Nul>'
 
+" ConqueGdb
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_CWInsert = 1
+let g:ConqueTerm_InsertOnEnter = 1
+let g:ConqueTerm_ReadUnfocused = 1
 
 " Uncrustify
 autocmd BufWritePre <buffer> if (&filetype == 'cpp') | call Uncrustify() | endif
