@@ -11,6 +11,9 @@ call vundle#begin()
         " 0. Local vimrc
         Plugin 'embear/vim-localvimrc'
 
+        " Speeding up folds and other things
+        Plugin 'Konfekt/FastFold'
+
         " 1. Navigation
         Plugin 'scrooloose/nerdtree'    " files tree
         Plugin 'majutsushi/tagbar'      " tags tree

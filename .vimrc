@@ -296,4 +296,11 @@ let g:ConqueTerm_InsertOnEnter = 1
 let g:ConqueTerm_ReadUnfocused = 1
 
 " Uncrustify
-autocmd BufWritePre <buffer> if (&filetype == 'cpp') | call Uncrustify() | endif
+" autocmd BufWritePre <buffer> if (&filetype == 'cpp') | call Uncrustify() | endif
+
+" FastFold
+nmap zuz <Plug>(FastFoldUpdate)
+let g:fastfold_savehook = 1
+" let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_command_suffixes = []
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
