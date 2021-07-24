@@ -284,6 +284,10 @@ map gd :YcmCompleter GoToDefinition<CR>
 
 " Go to (gg)
 map gg :YcmCompleter GoTo<CR>
+" Move back
+map gf <c-o>
+" Move forward
+map gh <c-i>
 
 " Invocation on Ctrl-B
 let g:ycm_key_invoke_completion = '<Nul>'
