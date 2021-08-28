@@ -18,3 +18,4 @@
 " Configure automatical removing trailing whitespaces from file
 
 autocmd BufWritePre *.cpp,*.c,*.h :%s/\s\+$//e
+au BufNewFile,BufRead Jenkinsfile setf groovy
