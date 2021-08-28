@@ -11,8 +11,8 @@ let g:pymode_doc = 0
 let g:pymode_doc_key = 'K'
 " проверка кода
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore="E501,W601,C0110"
+"let g:pymode_lint_checker = "pyflakes,pep8"
+"let g:pymode_lint_ignore="E501,W601,C0110"
 
 
 " провека кода после сохранения
