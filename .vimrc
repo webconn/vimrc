@@ -311,3 +311,9 @@ let g:fastfold_savehook = 1
 " let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
 let g:fastfold_fold_command_suffixes = []
 let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+
+" Vimdiff other colorscheme
+colorscheme industry
+
+" make popup menu colors better
+highlight Pmenu ctermbg=darkgray
