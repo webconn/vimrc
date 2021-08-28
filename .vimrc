@@ -289,6 +289,9 @@ map gf <c-o>
 " Move forward
 map gh <c-i>
 
+" Show type of object
+map gt :YcmCompleter GetType<CR>
+
 " Invocation on Ctrl-B
 let g:ycm_key_invoke_completion = '<Nul>'
 
