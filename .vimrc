@@ -71,9 +71,9 @@ set mouse=a
 set expandtab
 
 " Размер табулации по умолчанию
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 " Формат строки состояния
 set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c 
