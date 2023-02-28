@@ -116,40 +116,20 @@ vmap , :bp<cr><C-V>
 nmap . :bn<cr>
 vmap . :bn<cr><C-V>
 
-" F2 - показать окно Taglist
-map <F2> :TlistToggle<cr>
-vmap <F2> <esc>:TlistToggle<cr>
-imap <F2> <esc>:TlistToggle<cr>
-
 " F3 - просмотр ошибок
 nmap <F3> :copen<cr>
 vmap <F3> <esc>:copen<cr>
 imap <F3> <esc>:copen<cr>
-
-" F5 - просмотр списка буферов
-nmap <F5> <Esc>:BufExplorer<cr>
-vmap <F5> <esc>:BufExplorer<cr>
-imap <F5> <esc><esc>:BufExplorer<cr>
 
 " F6 - close current buffer
 map <F6> :bd<cr>
 vmap <F6> <esc>:bd<cr>i
 imap <F6> <esc>:bd<cr>i
 
-" F8 - список закладок
-map <F8> :MarksBrowser<cr>
-vmap <F8> <esc>:MarksBrowser<cr>
-imap <F8> <esc>:MarksBrowser<cr>
-
 " F9 - "make" команда (а также запуск редактируемого скрипта)
 map <F9> :make<cr>
 vmap <F9> <esc>:make<cr>i
 imap <F9> <esc>:make<cr>i
-
-" F10 - удалить буфер
-map <F10> :bd<cr>
-vmap <F10> <esc>:bd<cr>
-imap <F10> <esc>:bd<cr>
 
 " F12 - обозреватель файлов
 map <F12> :Ex<cr>
@@ -178,18 +158,7 @@ menu Encoding.utf-8 :e ++enc=utf8 <CR>
 " Аналогично и для {
 imap {<CR> {<CR>}<Esc>O
 
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
-" Слова откуда будем завершать
-set complete=""
-" Из текущего буфера
-set complete+=.
-" Из словаря
-set complete+=k
-" Из других открытых буферов
-set complete+=b
-" из тегов 
-set complete+=t
+" let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 " Включаем filetype плугин. Настройки, специфичные для определынных файлов мы разнесём по разным местам
 " filetype plugin on
@@ -219,18 +188,19 @@ set completeopt+=longest
 set mps-=[:]
 
 " Save folds
+"autocmd BufRead,BufEnter,BufWinEnter,BufWritePost *.* silent loadview 
 autocmd BufWinLeave,BufWrite,BufLeave *.* mkview
-autocmd BufRead,BufEnter,BufWinEnter,BufWritePost *.* silent loadview 
+autocmd BufWritePost,BufRead *.* silent loadview 
 set viewoptions-=options
-set sessionoptions=buffers,tabpages
-
-" Set current directory for current file
-autocmd BufEnter * silent! lcd %:p:h
+"set sessionoptions=buffers,tabpages
 
 " External configuration
 " let g:localvimrc_debug = 1
 let g:localvimrc_sandbox = 0
 let g:localvimrc_persistent = 1
+
+" ALE common configuration
+let g:ale_fixers = {}
 
 so ~/.vim/vundle.vimrc
 
@@ -243,12 +213,12 @@ so ~/.vim/filetype.vim
 " Python configuration
 so ~/.vim/python.vim
 
-" Add tags
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/qt4
+" Web configuration
+so ~/.vim/web.vim
 
-" "set langmap=Ж:,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,б\,ю.,ё`
-"
+" Neomake configuration
+so ~/.vim/neomake.vim
+
 " # Function to permanently delete views created by 'mkview'
 function! MyDeleteView()
     let path = fnamemodify(bufname('%'),':p')
@@ -270,30 +240,15 @@ command Delview call MyDeleteView()
 " Lower-case user commands: http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
 cabbrev delview <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Delview' : 'delview')<CR>
 
-" C/C++ autocomplete file
-let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
-
-" YCM navigation commands
-
-" Go to include file (gf)
-map gf :YcmCompleter GoToInclude<CR>
-
-" Go to declaration (gd)
-map gd :YcmCompleter GoToDefinition<CR>
-
-" Go to (gg)
-map gg :YcmCompleter GoTo<CR>
+" Go to (ff)
+map ff :ALEGoToDefinition<CR>
 " Move back
-map gf <c-o>
+map fr <c-o>
 " Move forward
-map gh <c-i>
+map fv <c-i>
 
 " Show type of object
-map gt :YcmCompleter GetType<CR>
-
-" Invocation on Ctrl-B
-let g:ycm_key_invoke_completion = '<Nul>'
+"map ft :YcmCompleter GetType<CR>
 
 " ConqueGdb
 let g:ConqueTerm_Color = 2
@@ -317,3 +272,13 @@ colorscheme industry
 
 " make popup menu colors better
 highlight Pmenu ctermbg=darkgray
+
+let g:ale_lint_on_enter = 1
+let g:ale_fix_on_save = 1
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+" ALE completion (may conflict with YCM)
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc

@@ -19,3 +19,10 @@
 
 autocmd BufWritePre *.cpp,*.c,*.h :%s/\s\+$//e
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" run neomake automatically on shell scripts save/open
+augroup neomake_filetype
+  au!
+  autocmd BufWritePost *.sh Neomake
+  autocmd FileType sh autocmd BufWritePost <buffer> Neomake
+augroup END

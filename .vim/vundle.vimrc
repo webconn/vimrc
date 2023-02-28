@@ -16,27 +16,19 @@ call vundle#begin()
 
         " 1. Navigation
         Plugin 'scrooloose/nerdtree'    " files tree
-        Plugin 'majutsushi/tagbar'      " tags tree
         Plugin 'fisadev/FixedTaskList.vim'
 
         " Plugin 'ervandew/supertab'      " use tabs for everything
 
-        " 2. Python
-        Plugin 'klen/python-mode'       " Python mode
-        Plugin 'davidhalter/jedi-vim'   " Autocomplete for Python
+        " Common things: ALE
+        Plugin 'dense-analysis/ale'
 
         " 3. C/C++
-        "Plugin 'justmao945/vim-clang'   " Autocomlete for C/C++
-        " Plugin 'vim-scripts/opencl.vim'
-        Plugin 'valloric/YouCompleteMe'
+        " Plugin 'valloric/YouCompleteMe'
         Plugin 'rdnetto/YCM-Generator'
 
         " Golang
         Plugin 'fatih/vim-go'
-
-        " JSON
-        " Plugin 'Shougo/unite.vim'
-        " Plugin 'Quramy/vison'
 
         " 4. Pretty Vim
         Plugin 'bling/vim-airline'      " Pretty status bar
@@ -45,10 +37,17 @@ call vundle#begin()
         Plugin 'tpope/vim-commentary'
 
         " 6. Debugging
-        Plugin 'vim-scripts/Conque-GDB'
+        " Plugin 'vim-scripts/Conque-GDB'
 
         " 7. Code tidy
         Plugin 'embear/vim-uncrustify'
+
+        " 8. Shell scriptiing
+        " Neomake (supports shell script lint)
+        Plugin 'neomake/neomake'
+
+        " Shfmt (formats shell scripts, requires shfmt installed)
+        Plugin 'z0mbix/vim-shfmt'
 
 call vundle#end()
 
