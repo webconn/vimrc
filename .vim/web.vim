@@ -1,6 +1,6 @@
 " Configure ALE to fix HTML
 
-set completeopt=menu,menuone,popup
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 let g:ale_fixers.javascript = ['eslint']
 let g:ale_fixers.javascriptreact = ['eslint']

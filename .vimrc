@@ -95,9 +95,6 @@ set sessionoptions=buffers,tabpages
 " Пробел в нормальном режиме перелистывает страницы
 nmap <Space> <PageDown>
 
-" CTRL-F для omni completion
-imap <C-F> <C-X><C-O>
-
 " C-c and C-v - Copy/Paste в "глобальный клипборд"
 vmap <C-C> "+yi
 imap <C-V> <esc>"+gPi
